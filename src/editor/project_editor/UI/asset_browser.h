@@ -1,0 +1,1 @@
+bool display_asset_browser();

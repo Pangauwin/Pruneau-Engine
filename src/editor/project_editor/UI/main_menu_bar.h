@@ -1,0 +1,1 @@
+bool display_main_menu_bar();
