@@ -18,7 +18,7 @@ FOR /R %%f in (*.c *.cpp) do (
 
 CD ..
 
-SET libFilenames=opengl32.lib comdlg32.lib
+SET libFilenames=opengl32.lib ole32.lib uuid.lib
 
 CD lib
 

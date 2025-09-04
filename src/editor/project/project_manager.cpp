@@ -32,6 +32,7 @@ bool ProjectManager::load_project(const std::string& path) {
 
     current_project = new Project;
     current_project->name = _data.value("name", ""); // default value if key missing
+    current_project->asset_file_path = _data.value("asset_file_path", "");
 
     std::cerr << "Project loaded : [" << cleanPath << "]" << std::endl;
 
