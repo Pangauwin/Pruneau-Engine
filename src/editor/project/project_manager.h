@@ -1,5 +1,7 @@
 #include "project.h"
 
+#include <defines.h>
+
 class ProjectManager
 {
 public:

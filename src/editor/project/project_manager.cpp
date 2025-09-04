@@ -6,7 +6,7 @@
 
 bool ProjectManager::load_project(const std::string& path) {
     std::string cleanPath = path;
-
+    cleanPath += "\\project_settings.pproject";
     
     if (!cleanPath.empty() && cleanPath.front() == '"' && cleanPath.back() == '"') {
         cleanPath = cleanPath.substr(1, cleanPath.size() - 2);
@@ -31,10 +31,13 @@ bool ProjectManager::load_project(const std::string& path) {
     }
 
     current_project = new Project;
-    current_project->name = _data.value("name", ""); // default value if key missing
-    current_project->asset_file_path = _data.value("asset_file_path", "");
+    current_project->name = _data.value("name", "unamed project"); // default value if key missing
+    current_project->asset_file_path = _data.value("asset_file_path", path + "\\assets_data.passet");
+    current_project->editor_version = _data.value("editor_version", EDITOR_VERSION);
 
     std::cerr << "Project loaded : [" << cleanPath << "]" << std::endl;
+    std::cerr << "Project name : [" << current_project->name << "]" << std::endl;
+    std::cerr << "Project editor version : [" << current_project->editor_version << "]" << std::endl;
 
     return true;
 }

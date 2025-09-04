@@ -65,7 +65,7 @@
         "list": "cpp",
         "typeindex": "cpp",
         "xhash": "cpp",
-        "test.pproject": "json",
+        "project_settings.pproject": "json",
         "any": "cpp",
         "chrono": "cpp",
         "filesystem": "cpp",

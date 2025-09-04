@@ -16,11 +16,7 @@ bool display_main_menu_bar()
     {
         if(ImGui::MenuItem("Open"))
         {
-            std::vector<std::pair<std::wstring, std::wstring>> filters = {
-                { L"Pruneau Project (*.pproject)", L"*.pproject" },
-            };
-
-            std::string _path = open_file_picker(filters);
+            std::string _path = open_folder_picker();
             if (!_path.empty())
             {
                 ProjectManager& project_manager = ProjectManager::getInstance();    

@@ -1,0 +1,3 @@
+#define EDITOR_VERSION "0.0.1"
+
+#define ENGINE_VERSION "0.0.1"
