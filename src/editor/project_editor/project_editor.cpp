@@ -16,7 +16,7 @@ bool project_editor_init()
 {
     ImGuiIO& io = ImGui::GetIO(); (void)io;
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
-    //io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
+    io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
 
     app* _app = get_current_app();
 
@@ -34,6 +34,8 @@ bool project_editor_init()
 
 bool project_editor_update()
 {
+    ImGui::DockSpaceOverViewport(ImGui::GetMainViewport()->ID);
+
     if (!display_main_menu_bar()) return false;
     if (!display_entity_viewer()) return false;
     if (!display_output()) return false;
