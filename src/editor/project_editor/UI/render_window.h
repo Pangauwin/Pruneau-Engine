@@ -1,0 +1,1 @@
+bool display_render_window();

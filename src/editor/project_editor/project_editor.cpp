@@ -9,6 +9,7 @@
 #include "UI/output.h"
 #include "UI/inspector.h"
 #include "UI/asset_browser.h"
+#include "UI/render_window.h"
 
 #include <engine/app/app.h>
 
@@ -36,11 +37,13 @@ bool project_editor_update()
 {
     ImGui::DockSpaceOverViewport(ImGui::GetMainViewport()->ID);
 
+    // TODO : implement error messages
     if (!display_main_menu_bar()) return false;
     if (!display_entity_viewer()) return false;
     if (!display_output()) return false;
     if (!display_inspector()) return false;
     if (!display_asset_browser()) return false;
+    if (!display_render_window()) return false;
 
     return true;
 }
