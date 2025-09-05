@@ -17,6 +17,7 @@ public:
 
     Project* get_current_project();
 
+    // Avoid bad things :)
     ProjectManager(const ProjectManager&) = delete;
     ProjectManager& operator=(const ProjectManager&) = delete;
 
