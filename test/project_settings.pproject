@@ -1,3 +1,5 @@
 {
-    "name" : "test project"
+    "asset_file_path": "C:\\Dev\\PruneauEngine\\test\\assets_data.passet",
+    "editor_version": "0.0.1",
+    "name": "test project"
 }

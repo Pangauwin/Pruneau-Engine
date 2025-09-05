@@ -21,8 +21,10 @@ bool ProjectManager::load_project(const std::string& path) {
     nlohmann::json _data;
     try {
         file >> _data;
+        file.close();
     } catch (const nlohmann::json::parse_error& e) {
         std::cerr << "JSON Error : " << e.what() << std::endl;
+        file.close();
         return false;
     }
 
@@ -38,6 +40,19 @@ bool ProjectManager::load_project(const std::string& path) {
     std::cerr << "Project loaded : [" << cleanPath << "]" << std::endl;
     std::cerr << "Project name : [" << current_project->name << "]" << std::endl;
     std::cerr << "Project editor version : [" << current_project->editor_version << "]" << std::endl;
+
+    _data["name"] = current_project->name;
+    _data["asset_file_path"] = current_project->asset_file_path;
+    _data["editor_version"] = current_project->editor_version;
+
+    std::ofstream out_file(cleanPath);
+    if (out_file.is_open()) {
+        out_file << _data.dump(4);  // 4 for indentation
+        out_file.close();
+    } else {
+        std::cerr << "Unable to open file for writing data : [" << cleanPath << "]" << std::endl;
+    }
+
 
     return true;
 }
