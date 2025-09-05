@@ -33,6 +33,8 @@ bool ProjectManager::load_project(const std::string& path) {
     }
 
     current_project = new Project;
+
+    // TODO : rewrite functions (API) to write automatically the json file when data is missing
     current_project->name = _data.value("name", "unamed project"); // default value if key missing
     current_project->asset_file_path = _data.value("asset_file_path", path + "\\assets_data.passet");
     current_project->editor_version = _data.value("editor_version", EDITOR_VERSION);
